@@ -17,9 +17,9 @@ namespace ApiSuperHeroes.Controllers
         private SuperHeroesEntities db = new SuperHeroesEntities();
 
         // GET: api/Poders
-        public IQueryable<Poder> GetPoder()
+        public IHttpActionResult GetPoder()
         {
-            return db.Poder;
+            return Ok(db.Poder.ToList().Select(x => new Poder()).ToList());
         }
 
         // GET: api/Poders/5

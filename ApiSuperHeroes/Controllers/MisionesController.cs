@@ -17,9 +17,9 @@ namespace ApiSuperHeroes.Controllers
         private SuperHeroesEntities db = new SuperHeroesEntities();
 
         // GET: api/Misiones
-        public IQueryable<Misiones> GetMisiones()
+        public IHttpActionResult GetMisiones()
         {
-            return db.Misiones;
+            return Ok(db.Misiones.ToList().Select(x => new Misiones()).ToList());
         }
 
         // GET: api/Misiones/5
