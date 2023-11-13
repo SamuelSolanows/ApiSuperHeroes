@@ -17,9 +17,9 @@ namespace ApiSuperHeroes.Controllers
         private SuperHeroesEntities db = new SuperHeroesEntities();
 
         // GET: api/Grupoes
-        public IQueryable<Grupo> GetGrupo()
+        public IHttpActionResult GetGrupo()
         {
-            return db.Grupo;
+            return Ok(db.Grupo.ToList().Select(x=> new Grupo()).ToList());
         }
 
         // GET: api/Grupoes/5
